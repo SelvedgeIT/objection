@@ -96,6 +96,20 @@ def patch_ios_ipa(source: str, codesign_signature: str, provision_file: str, bin
         os.path.join(os.path.abspath('.'), os.path.basename(patcher.get_patched_ipa_path())))
 
 
+def patch_android_aab(source: str, architecture: str, pause: bool, skip_cleanup: bool = True,
+                      enable_debug: bool = True, gadget_version: str = None, skip_resources: bool = False,
+                      network_security_config: bool = False, target_class: str = None,
+                      use_aapt2: bool = False, gadget_config: str = None, script_source: str = None,
+                      ignore_nativelibs: bool = True, manifest: str = None) -> None:
+   o = delegator.run('java run stuff to extact')
+   local_path ="test/extracted.apk"
+   patch_android_apk(local_path,architecture: str, pause: bool, skip_cleanup: bool = True,
+                      enable_debug: bool = True, gadget_version: str = None, skip_resources: bool = False,
+                      network_security_config: bool = False, target_class: str = None,
+                      use_aapt2: bool = False, gadget_config: str = None, script_source: str = None,
+                      ignore_nativelibs: bool = True, manifest: str = None)
+  
+    
 def patch_android_apk(source: str, architecture: str, pause: bool, skip_cleanup: bool = True,
                       enable_debug: bool = True, gadget_version: str = None, skip_resources: bool = False,
                       network_security_config: bool = False, target_class: str = None,
