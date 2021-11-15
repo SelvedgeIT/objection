@@ -34,6 +34,15 @@ class TestsCommandLineInteractions(unittest.TestCase):
 
         self.assertIsNone(result.exception)
         self.assertEqual(result.exit_code, 0)
+        
+            @mock.patch('objection.console.cli.patch_android_apk')
+            
+    def test_patchaab_runs_with_minimal_cli_arguments(self, _):
+        runner = CliRunner()
+        result = runner.invoke(patchapk, ['--source', 'foo.aab'])
+
+        self.assertIsNone(result.exception)
+        self.assertEqual(result.exit_code, 0)
 
     @mock.patch('objection.console.cli.patch_android_apk')
     def test_patchapk_runs_with_all_cli_arguments(self, _):
